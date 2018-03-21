@@ -146,11 +146,11 @@ module MGRS
           @easting    = nil
           @northing   = nil
 
-          self.utmcs_grid_cell = MGRS::UTMCS.GridCell.new
+          self.utmcs_grid_cell = MGRS::UTMCS::GridCell.new
         elsif not position.nil? and latitude.nil? and longitude.nil?
           setup_instance_variables position: position
         elsif position.nil? and not latitude.nil? and not longitude.nil?
-          self.utmcs_grid_cell = MGRS::UTMCS.GridCell.new latitude: latitude, longitude: longitude
+          self.utmcs_grid_cell = MGRS::UTMCS::GridCell.new latitude: latitude, longitude: longitude
           setup_instance_variables position: utm_to_mgrs_position(self.utmcs_grid_cell)
         end
         self
